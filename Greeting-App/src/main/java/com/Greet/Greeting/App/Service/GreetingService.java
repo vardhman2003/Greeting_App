@@ -29,4 +29,8 @@ public class GreetingService {
         return greetingRepository.save(new Greeting(message));
     }
 
+    public Greeting getGreetingById(Long id) {
+        return greetingRepository.findById(id).orElse(null);
+    }
+
 }
