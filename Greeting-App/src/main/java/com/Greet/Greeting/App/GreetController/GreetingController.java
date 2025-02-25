@@ -34,4 +34,13 @@ public class GreetingController {
     public String greetingService() {
         return greetingService.greeting();
     }
+
+    @Autowired
+    private GreetingService GreetingService;
+
+    @GetMapping
+    public String getGreeting(@RequestParam(required = false) String firstName,
+                              @RequestParam(required = false) String lastName) {
+        return "{\"message\": \"" + greetingService.getGreetingMessage(firstName, lastName)+"\"}";
+    }
 }
